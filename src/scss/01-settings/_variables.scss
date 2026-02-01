@@ -1,12 +1,13 @@
 // src/scss/01-settings/_variables.scss
 
 // 1. Typography Settings
-$font-family-base: 'Crimson Pro', Georgia, serif;
-$font-family-headings: 'FUCXED CAPS', sans-serif; // Aggiungiamo il font per i titoli
+// Sostituiamo i font con Anton (titoli impattanti), Inter (testo moderno) e Barlow (UI tecnica)
+$font-family-base: 'Inter', system-ui, -apple-system, sans-serif;
+$font-family-headings: 'Anton', sans-serif;
+$font-family-accent: 'Barlow Semi Condensed', sans-serif;
 $font-size-base: 16px;
 
-// 2. Breakpoints (Calcolati dai tuoi valori originali)
-// 30 * 16 = 480px | 46 * 16 = 736px | 61 * 16 = 976px | 71 * 16 = 1136px
+// 2. Breakpoints (Manteniamo i tuoi valori originali calcolati)
 $breakpoints: (
     'xs': 480px,
     'sm': 736px,
@@ -21,11 +22,17 @@ $vertical-margin-mobile: 1.5em;
 // 4. Grid Settings (Derivati dal tuo flexboxgrid)
 $gutter-width: 1.5em;
 
-// 5. CSS Custom Properties (Per uso in JS o blocchi Gutenberg)
+// 5. CSS Custom Properties
+// Queste variabili saranno usate in tutto il progetto per garantire coerenza
 :root {
     --font-main: #{$font-family-base};
     --font-heading: #{$font-family-headings};
+    --font-accent: #{$font-family-accent};
     --margin-v-desktop: #{$vertical-margin-desktop};
     --margin-v-mobile: #{$vertical-margin-mobile};
     --grid-gutter: #{$gutter-width};
+
+    // Line-height specifico per Anton per renderlo veramente "aggressive"
+    --line-height-heading: 1;
+    --letter-spacing-heading: 0.02em;
 }
