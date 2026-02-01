@@ -10,7 +10,7 @@
 
     // La linea verticale deve essere sottile e discreta
     // Usiamo un colore neutro che non contrasti troppo con lo sfondo o il testo
-    border-left: 2px solid #e0e0e0;
+    border-left: 3px solid #acaaaa;
 
     // Sostituzione mixin mq(md) con media query standard
     @media (min-width: 768px) {
@@ -21,7 +21,7 @@
     &__number-small {
         display: block;
         font-size: 1.2rem;
-        color: #b0b0b0;
+        color: #acaaaa;
         margin-bottom: 1.5rem;
         font-family: var(--font-main); // Coerente con _variables.scss
         font-weight: 400;

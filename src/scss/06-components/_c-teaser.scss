@@ -1,3 +1,4 @@
+// src/scss/06-components/_c-teaser.scss
 @use '../01-settings/variables' as *;
 @use '../01-settings/colors' as *;
 
@@ -38,6 +39,7 @@
         text-transform: uppercase;
         line-height: 1.1;
         margin-bottom: 10px;
+        color: $color-black;
     }
 
     &__body {
@@ -48,6 +50,7 @@
             font-size: 1.2rem;
             line-height: 1.4;
             margin: 0;
+            color: inherit;
         }
     }
 
@@ -61,11 +64,11 @@
 
         &:hover {
             text-decoration: underline;
+            color: $color-red;
         }
     }
 
-
-
+    // Media Query Mobile (Logica identica al tuo snippet)
     @media (max-width: 768px) {
         .teaser-split {
             flex-direction: column;
