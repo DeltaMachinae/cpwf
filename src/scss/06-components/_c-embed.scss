@@ -1,0 +1,31 @@
+// src/scss/06-components/_c-embed.scss
+
+@use 'c-btn' as *;
+@use '../01-settings/variables' as *;
+
+.c-embed {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: var(--color-black);
+    overflow: hidden;
+
+    &__button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-3deg);
+        z-index: 10;
+
+        // Ora Sass troverà .c-btn perché lo abbiamo importato sopra
+        @extend .c-btn;
+        @extend .c-btn--primary;
+
+        padding: 1rem 2rem;
+        font-size: 1.5rem;
+
+        &:hover {
+            transform: translate(-50%, -50%) rotate(0deg) scale(1.1);
+        }
+    }
+}

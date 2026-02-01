@@ -1,0 +1,32 @@
+// src/scss/01-settings/_colors.scss
+
+$cpwf-colors: (
+    'blue': #050444,
+    'red': #a32725,
+    'light-blue': #008ab9,
+    'black': #000000,
+    'white': #ffffff
+);
+
+:root {
+    @each $name, $value in $cpwf-colors {
+        --color-#{ $name }: #{ $value };
+    }
+}
+
+// Generazione automatica Classi Utility (Il "ritorno" alle classi nel codice)
+@each $name, $value in $cpwf-colors {
+    .u-bg--#{$name} {
+        background-color: var(--color-#{$name}) !important;
+    }
+
+    .u-color--#{$name} {
+        color: var(--color-#{$name}) !important;
+    }
+}
+
+// Variabili SCSS per uso interno
+$color-blue: var(--color-blue);
+$color-red: var(--color-red);
+$color-white: var(--color-white);
+$color-black: var(--color-black);

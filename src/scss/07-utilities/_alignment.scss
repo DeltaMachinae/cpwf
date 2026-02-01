@@ -1,0 +1,9 @@
+// src/scss/07-utilities/_alignment.scss
+:target::before {
+    content: '';
+    display: block;
+    height: 100px; // Altezza del tuo header fixed
+    margin-top: -100px;
+    visibility: hidden;
+    pointer-events: none;
+}

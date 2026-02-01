@@ -1,0 +1,29 @@
+// src/scss/01-settings/_fonts.scss
+
+@font-face {
+    font-family: 'Crimson Pro';
+    font-style: italic;
+    font-weight: 200 900;
+    font-display: swap;
+    src: local('Crimson Pro'), local('CrimsonPro'),
+        url('../../fonts/Crimson_Pro/Crimson_Pro_variable_latin_200_900_ital.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Crimson Pro';
+    font-style: normal;
+    font-weight: 200 900;
+    font-display: swap;
+    src: local('Crimson Pro'), local('CrimsonPro'),
+        url('../../fonts/Crimson_Pro/Crimson_Pro_variable_latin_200_900.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'FUCXED CAPS';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('FUCXED CAPS Latin Regular'),
+        url('../../fonts/Fucxed/FUCXEDCAPSLatin-Regular.woff2') format('woff2'),
+        url('../../fonts/Fucxed/FUCXEDCAPSLatin-Regular.woff') format('woff');
+}

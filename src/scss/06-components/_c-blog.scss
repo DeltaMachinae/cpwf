@@ -1,0 +1,31 @@
+// src/scss/06-components/_c-blog.scss
+
+.c-blog-entry {
+
+    // Il meta (data, autore, categoria)
+    &__meta {
+        font-family: var(--font-main);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--color-red);
+
+        // Refactoring della tua riga originale:
+        // Usiamo calc per sommare unità in modo sicuro
+        margin-bottom: calc(var(--margin-v-desktop) + 0.5rem);
+
+        @media (max-width: 768px) {
+            margin-bottom: var(--margin-v-mobile);
+        }
+    }
+
+    &__title {
+        margin-bottom: 1rem;
+        // Erediterà .h--2 o .h--3 via HTML
+    }
+
+    &__excerpt {
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+    }
+}

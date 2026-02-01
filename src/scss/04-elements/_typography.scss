@@ -1,0 +1,63 @@
+@use '../01-settings/variables' as *;
+@use '../01-settings/colors' as *;
+
+// 1. Base Text
+body {
+    font-family: $font-family-base;
+    font-size: $font-size-base;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+#main {
+    // Usiamo clamp per un font-size fluido tra 22px e 24px
+    font-size: clamp(1.375rem, 2vw, 1.5rem);
+    line-height: 1.4;
+    overflow-wrap: break-word;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+// 2. Headings Base
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 0.3em;
+    line-height: 1.2;
+}
+
+// 3. Titoli con classi (BEM)
+.h {
+
+    // Mixin FUCXED integrato direttamente nella classe caps
+    &--caps {
+        font-family: 'FUCXED CAPS', Impact, sans-serif;
+        text-transform: uppercase;
+        line-height: 1.1;
+        letter-spacing: 0.02em;
+    }
+
+    &--1 {
+        // Fluido tra 55px e 75px
+        font-size: clamp(3.4375rem, 8vw, 4.6875rem);
+    }
+
+    &--2 {
+        // Fluido tra 40px e 55px
+        font-size: clamp(2.5rem, 6vw, 3.4375rem);
+    }
+
+    &--3 {
+        // Fluido tra 33px e 35px
+        font-size: clamp(2.0625rem, 4vw, 2.1875rem);
+    }
+
+    &--center {
+        text-align: center;
+    }
+}

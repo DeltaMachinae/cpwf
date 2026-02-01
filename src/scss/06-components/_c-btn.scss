@@ -1,0 +1,64 @@
+// src/scss/06-components/_c-btn.scss
+
+.c-btn {
+    display: inline-block;
+    padding: 0.65em 1.2em 0.45em;
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    text-align: center;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease-in-out;
+
+    // Lo stile "storto" caratteristico
+    transform: rotate(-3deg);
+
+    @media (max-width: 768px) {
+        font-size: 1rem;
+        padding: 0.55em 1rem 0.4em;
+    }
+
+    // Variante Primaria (Rossa)
+    &--primary {
+        background-color: var(--color-red);
+        color: var(--color-white);
+
+        &:hover,
+        &:focus {
+            background-color: var(--color-black);
+            color: var(--color-white);
+            transform: rotate(0deg) scale(1.05);
+        }
+    }
+
+    // Variante Secondaria (Blu)
+    &--secondary {
+        background-color: var(--color-blue);
+        color: var(--color-white);
+
+        &:hover,
+        &:focus {
+            background-color: var(--color-black);
+            transform: rotate(0deg) scale(1.05);
+        }
+    }
+
+    // Dimensioni
+    &--lg {
+        font-size: 1.6rem;
+        padding: 0.8em 1.5em;
+    }
+
+    &--full {
+        width: 100%;
+        display: block;
+    }
+
+    &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+        transform: none;
+    }
+}

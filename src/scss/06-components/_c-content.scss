@@ -1,0 +1,41 @@
+// src/scss/06-components/_c-content.scss
+.c-content {
+
+    // Liste numerate "Action Style"
+    ol {
+        list-style: none;
+        counter-reset: cpwf-counter;
+        padding-left: 3rem;
+
+        li {
+            counter-increment: cpwf-counter;
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+            border-left: 2px solid var(--color-light-blue);
+
+            &::before {
+                content: counter(cpwf-counter);
+                font-family: var(--font-heading);
+                font-size: 3rem;
+                color: var(--color-blue);
+                position: absolute;
+                left: -3.5rem;
+                top: -0.5rem;
+                line-height: 1;
+            }
+        }
+    }
+
+    // Spaziatura titoli interna ai blocchi testo
+    h2,
+    h3,
+    h4 {
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+}

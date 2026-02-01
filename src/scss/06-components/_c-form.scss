@@ -1,0 +1,94 @@
+// src/scss/06-components/_c-form.scss
+
+.c-form {
+    &__group {
+        margin-bottom: 1.5rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__label {
+        font-family: var(--font-heading);
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: var(--color-blue);
+        letter-spacing: 0.02em;
+    }
+
+    &__control {
+        appearance: none;
+        width: 100%;
+        padding: 0.8rem 1rem;
+        font-family: var(--font-main);
+        font-size: 1rem;
+        border: 2px solid var(--color-blue);
+        background-color: var(--color-white);
+        transition: border-color 0.2s ease;
+
+        &:focus {
+            outline: none;
+            border-color: var(--color-red);
+        }
+
+        &::placeholder {
+            color: #999;
+        }
+
+        &:disabled {
+            background-color: var(--color-light);
+            cursor: not-allowed;
+        }
+    }
+
+    // Checkbox personalizzate (stile CPWF)
+    &__checkbox-wrapper {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        position: relative;
+        padding-left: 2.5rem;
+        user-select: none;
+
+        input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        // Il quadrato della checkbox
+        .c-form__checkmark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 1.5rem;
+            width: 1.5rem;
+            background-color: var(--color-white);
+            border: 2px solid var(--color-blue);
+            transform: rotate(-2deg); // Stile "storto" del brand
+
+            &:after {
+                content: "";
+                position: absolute;
+                display: none;
+                left: 5px;
+                top: 1px;
+                width: 6px;
+                height: 12px;
+                border: solid var(--color-red);
+                border-width: 0 3px 3px 0;
+                transform: rotate(45deg);
+            }
+        }
+
+        &:hover input~.c-form__checkmark {
+            border-color: var(--color-red);
+        }
+
+        input:checked~.c-form__checkmark:after {
+            display: block;
+        }
+    }
+}

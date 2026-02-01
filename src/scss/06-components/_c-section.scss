@@ -1,0 +1,29 @@
+// src/scss/06-components/_c-section.scss
+.c-section {
+    position: relative;
+    margin-bottom: var(--margin-v-mobile);
+
+    &--full-width {
+        width: 100%;
+        padding: 0;
+    }
+
+    @media (min-width: 736px) {
+        // $bp-sm
+        margin-bottom: var(--margin-v-desktop);
+    }
+
+    &--full-width {
+        width: 100%;
+        padding: 0;
+    }
+
+    &--remove-gap {
+        margin-bottom: 0;
+    }
+
+    &--mission {
+        padding-top: 4rem;
+
+    }
+}

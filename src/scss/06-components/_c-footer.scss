@@ -1,0 +1,68 @@
+// Componente principale Footer
+.c-footer {
+    width: 100%;
+
+    // Sezione superiore: Social Media
+    &__social {
+        padding: clamp(2.5rem, 5vw, 3.5rem) 0;
+        background-color: var(--color-light-blue); // Classe bg--cpwf-light-blue nell'HTML
+        text-align: center;
+
+        .c-icon-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+    }
+
+    // Sezione inferiore: Menu e Legal
+    &__main {
+        padding: 2.5rem 0;
+        background-color: var(--color-blue);
+        color: var(--color-white);
+    }
+
+    &__group-title {
+        margin-bottom: 1.25rem;
+        // La classe h--3 h--caps nell'HTML erediterà già gli stili tipografici
+    }
+}
+
+// Sotto-componente per i link con l'effetto "distorto" CPWF
+.c-footer-menu {
+    list-style: none;
+
+    &__item {
+        margin-bottom: 0.5rem;
+    }
+
+    &__link {
+        display: inline-block;
+        position: relative;
+        padding: 0.1em 0.4em;
+        text-decoration: none;
+        color: inherit;
+        z-index: 1;
+
+        &:before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: transparent;
+            z-index: -1;
+            transform: rotate(-1.5deg);
+            transition: background 0.2s ease;
+        }
+
+        &:hover:before {
+            background: var(--color-red);
+        }
+
+        // Rotazione alternata per dinamismo
+        &:nth-of-type(2n):before {
+            transform: rotate(1.5deg);
+        }
+    }
+}

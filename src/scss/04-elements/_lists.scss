@@ -1,0 +1,21 @@
+// src/scss/04-elements/_lists.scss
+
+dl {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+dt {
+    flex-basis: 20%;
+    font-weight: 700; // Un piccolo tocco di stile per la leggibilità
+}
+
+dd {
+    flex-basis: 70%;
+    flex-grow: 1;
+    margin-bottom: 0.5rem;
+}
+
+small {
+    font-size: 75%;
+}

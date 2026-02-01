@@ -1,0 +1,88 @@
+// src/scss/03-generic/_reset.scss
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%; // Fallback
+    -webkit-text-size-adjust: 100%;
+    // Calcoliamo la base 1rem = 10px per facilitare i calcoli (opzionale ma consigliato)
+    // font-size: 62.5%; 
+
+    @media (prefers-reduced-motion: no-preference) {
+        scroll-behavior: smooth;
+    }
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh; // Altezza dinamica per i browser mobile
+    color: var(--color-black); // Usiamo la variabile CPWF definita nei settings
+}
+
+// Reset Tipografico: Non forziamo 1rem qui, lo faremo in 04-elements
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    font-weight: normal;
+}
+
+// Link: Attenzione! 'display: inline-block' globale può rompere il testo nel mezzo di un paragrafo.
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease-in-out;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+// Media: height auto è fondamentale, ma per la Hero useremo object-fit
+img,
+picture,
+video,
+canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+svg {
+    display: block; // Meglio block o inline-block a seconda del contesto
+    max-width: 100%;
+    fill: currentColor;
+}
+
+// Rimuoviamo l'outline solo se gestiamo il :focus in modo accessibile
+button,
+input,
+select,
+textarea {
+    font: inherit;
+    background: none;
+    border: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1.5rem 0;
+}

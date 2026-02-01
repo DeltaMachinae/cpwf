@@ -1,0 +1,100 @@
+@use '../01-settings/variables' as *;
+
+/* ==========================================================================
+   GRID SYSTEM (Objects)
+   Flexbox based. Mobile First.
+   ========================================================================== */
+
+// 1. Configurazione (Fallback se le variabili non esistono)
+$grid-columns: 12;
+$grid-gutter: var(--grid-gutter, 1.5rem);
+$grid-max-width: var(--container-max-width, 1200px);
+// Definiamo da quale larghezza le classi "shorthand" (es: o-col-4) iniziano a funzionare
+$desktop-breakpoint: 992px;
+
+// 2. Container
+.o-container,
+.container {
+    width: 100%;
+    max-width: $grid-max-width;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: calc($grid-gutter / 2);
+    padding-left: calc($grid-gutter / 2);
+}
+
+// 3. Row
+.o-row,
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: calc($grid-gutter / -2);
+    margin-left: calc($grid-gutter / -2);
+}
+
+// 4. Base Column (Tutte le colonne partono al 100% width)
+[class*="o-col-"],
+[class*="col-"] {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: calc($grid-gutter / 2);
+    padding-left: calc($grid-gutter / 2);
+    // Flex shrink e grow standard per evitare rotture
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+// 5. Mobile (XXS - Da 0px in su)
+// Utile per forzare comportamenti specifici su mobile (es: o-col-xxs-6 per due in riga su mobile)
+@for $i from 1 through $grid-columns {
+
+    .o-col-xxs-#{$i},
+    .col-xxs-#{$i} {
+        flex: 0 0 calc(100% / $grid-columns * $i);
+        max-width: calc(100% / $grid-columns * $i);
+    }
+
+    .o-col-xxs-offset-#{$i} {
+        margin-left: calc(100% / $grid-columns * $i);
+    }
+}
+
+// 6. Responsive Breakpoints (es: o-col-md-4)
+// Genera le classi prefissate per ogni breakpoint definito nei settings
+@each $key, $val in $breakpoints {
+    @media (min-width: $val) {
+        @for $i from 1 through $grid-columns {
+
+            .o-col-#{$key}-#{$i},
+            .col-#{$key}-#{$i} {
+                flex: 0 0 calc(100% / $grid-columns * $i);
+                max-width: calc(100% / $grid-columns * $i);
+            }
+
+            .o-col-#{$key}-offset-#{$i},
+            .col-#{$key}-offset-#{$i} {
+                margin-left: calc(100% / $grid-columns * $i);
+            }
+        }
+    }
+}
+
+// 7. Desktop Shorthands (es: o-col-4)
+// Queste classi si attivano SOLO da desktop in su per non rompere il mobile.
+// Se vuoi che .o-col-4 si applichi prima, abbassa il valore di media query qui sotto.
+@media (min-width: $desktop-breakpoint) {
+    @for $i from 1 through $grid-columns {
+
+        .o-col-#{$i},
+        .col-#{$i} {
+            flex: 0 0 calc(100% / $grid-columns * $i);
+            max-width: calc(100% / $grid-columns * $i);
+        }
+
+        .o-col-offset-#{$i},
+        .col-offset-#{$i} {
+            margin-left: calc(100% / $grid-columns * $i);
+        }
+    }
+}

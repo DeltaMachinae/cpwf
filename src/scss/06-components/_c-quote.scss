@@ -1,0 +1,56 @@
+@use '../01-settings/variables' as *;
+
+.c-quote {
+    // 1. Reset per permettere l'estensione totale
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+
+    // Assicura che il contenitore non abbia padding extra che stringono il testo
+    padding: 0;
+
+    // --- STILE BASE COMUNE (Tipografia "Manifesto") ---
+    &__text--primary,
+    &__text--secondary {
+        font-family: var(--font-heading);
+        font-weight: 800; // Black/ExtraBold
+        text-transform: uppercase;
+        color: var(--color-black);
+        margin: 0;
+
+        // Interlinea molto stretta per creare l'effetto "blocco solido"
+        line-height: 0.9;
+        letter-spacing: -0.02em;
+
+        // --- DIMENSIONI RESPONSIVE ---
+        font-size: 1.8rem; // Mobile
+
+        @media (min-width: 768px) {
+            font-size: 2.5rem; // Tablet
+        }
+
+        @media (min-width: 992px) {
+            font-size: 3.2rem; // Desktop standard
+        }
+
+        @media (min-width: 1400px) {
+            // Su schermi larghi il testo diventa molto grande per riempire la width
+            font-size: 2-5rem;
+        }
+    }
+
+    // --- PRIMA RIGA: Allineata a DESTRA ---
+    &__text--primary {
+        text-align: right;
+        display: block;
+
+        // Un piccolo margine sotto per staccare appena i due blocchi
+        padding-bottom: 0.5rem;
+    }
+
+    // --- SECONDA PARTE: Allineata a SINISTRA ---
+    &__text--secondary {
+        text-align: left;
+        display: block;
+    }
+}

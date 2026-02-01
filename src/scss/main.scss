@@ -1,0 +1,47 @@
+/**
+ * CAPTAIN PAUL WATSON FOUNDATION - ITALY
+ * Final Orchestrator Style (ITCSS)
+ * Rifatto sulla base della struttura file reale
+ */
+
+// 01. Settings
+@use '01-settings/colors';
+@use '01-settings/fonts';
+@use '01-settings/variables';
+
+// 02. Tools
+
+// 03. Generic
+@use '03-generic/reset';
+
+// 04. Elements
+@use '04-elements/a';
+@use '04-elements/lists';
+@use '04-elements/typography';
+
+// 05. Objects
+@use '05-objects/grid';
+@use '05-objects/o-layout';
+
+// 06. Components
+@use '06-components/c-alert';
+@use '06-components/c-blog';
+@use '06-components/c-btn';
+@use '06-components/c-content';
+@use '06-components/c-embed';
+@use '06-components/c-footer';
+@use '06-components/c-form';
+@use '06-components/c-header';
+@use '06-components/c-icons';
+@use '06-components/c-letter-list';
+@use '06-components/c-links';
+@use '06-components/c-pagination';
+@use '06-components/c-quote';
+@use '06-components/c-section';
+@use '06-components/c-teaser';
+@use '06-components/c-stats';
+@use '06-components/c-hero';
+
+// 07. Utilities
+@use '07-utilities/alignment';
+@use '07-utilities/helpers';
