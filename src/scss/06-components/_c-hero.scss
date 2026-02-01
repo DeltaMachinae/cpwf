@@ -1,94 +1,95 @@
+// src/scss/06-components/_c-hero.scss
 @use '../01-settings/variables' as *;
 @use '../01-settings/colors' as *;
 
 .c-hero {
     position: relative;
     width: 100%;
-    height: 100vh;
-    height: 100dvh;
+    height: 80vh; // Default mobile
+    min-height: 500px;
     overflow: hidden;
+    background-color: $color-blue;
     margin: 0;
-    padding: 0;
+
+    // Sostituzione mixin mq(md) con media query standard
+    @media (min-width: 768px) {
+        height: 100vh; // Full viewport su desktop
+    }
 
     &__content {
         height: 100%;
         width: 100%;
     }
 
-    picture,
-    figure {
-        height: 100%;
-        width: 100%;
-        margin: 0;
-        display: block;
-    }
-
-    img {
+    &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: center center;
-        display: block;
-        filter: brightness(0.75);
+        object-position: center;
+        filter: brightness(0.5); // Leggermente più scuro per massimizzare il contrasto del testo bianco
+        z-index: 1;
     }
 
     &__overlay {
         position: absolute;
-        inset: 0;
+        top: 4em;
+        left: 0;
+        width: 100%;
+        height: 100%;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        background: rgba(5, 4, 68, 0.2);
-        text-align: center;
+        align-items: center; // Centratura verticale totale
+        justify-content: center; // Centratura orizzontale totale
+        z-index: 2;
+        // Gradient radiale per scurire gli angoli e mantenere il focus sul testo centrale
+        background: radial-gradient(circle, rgba($color-blue, 0.2) 0%, rgba($color-blue, 0.7) 100%);
+    }
+
+    &__container {
+        width: 100%; // Forza l'o-container a occupare lo spazio disponibile per centrare il body
     }
 
     &__body {
-        max-width: 900px;
         width: 100%;
-        display: flex;
-        padding-top: 4rem;
+        max-width: 1000px; // Limite larghezza per leggibilità su schermi ultra-wide
+        text-align: center;
+        margin-left: auto; // CRUCIALE: Centra il blocco dentro l'o-container su desktop
+        margin-right: auto; // CRUCIALE: Centra il blocco dentro l'o-container su desktop
+        padding: 0 var(--grid-gutter);
+    }
 
-        flex-direction: column;
-        align-items: center;
+    &__title {
+        margin-bottom: 1.5rem;
+        font-family: var(--font-heading);
+        // Font size fluido: minimo 3.5rem, scalabile col viewport, massimo 7.5rem
+        font-size: clamp(3.5rem, 12vw, 7.5rem);
+        line-height: 0.85;
+        text-transform: uppercase;
+        color: $color-white;
+        letter-spacing: -0.02em; // Look compatto Direct Action
+    }
+
+    &__description {
+        font-size: 1.2rem;
+        color: $color-white;
+        margin-bottom: 3rem;
         margin-left: auto;
         margin-right: auto;
+        max-width: 650px;
 
-        h1,
-        .c-hero__title {
-            font-size: 5rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
-            width: 100%;
-            text-align: center;
-            line-height: 1.1;
+        @media (min-width: 768px) {
+            font-size: 1.8rem;
         }
 
-        .c-hero__description {
-            margin-bottom: 2rem;
-            width: 100%;
-            text-align: center;
-
-            p {
-                font-size: 1.4rem;
-                background: var(--color-red);
-                color: var(--color-white);
-                display: inline-block;
-                padding: 0.4rem 0.8rem;
-                line-height: 1.6;
-                box-decoration-break: clone;
-                -webkit-box-decoration-break: clone;
-            }
+        p {
+            margin: 0;
         }
+    }
 
-        .c-hero__actions {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-
-            .c-btn-donate {
-                font-size: 1.4rem;
-                padding: 0.4em 1.2em;
-            }
-        }
+    &__actions {
+        display: flex;
+        justify-content: center;
     }
 }

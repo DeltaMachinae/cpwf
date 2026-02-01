@@ -1,66 +1,64 @@
-.u-hidden {
-    display: none !important;
-}
+// src/scss/07-utilities/_helpers.scss
+@use '../01-settings/variables' as *;
 
-.u-visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
+/* ==========================================================================
+   HELPERS / UTILITIES
+   Classi ad alta specificità per correzioni rapide e spaziature.
+   ========================================================================== */
 
-    &.u-focusable:active,
-    &.u-focusable:focus {
-        position: static;
-        width: auto;
-        height: auto;
-        overflow: visible;
-        clip: auto;
-        white-space: inherit;
+// 1. Spaziature Verticali (Padding)
+.u-padding-v--large {
+    padding-top: calc(var(--margin-v-mobile) * 2) !important;
+    padding-bottom: calc(var(--margin-v-mobile) * 2) !important;
+
+    @media (min-width: 768px) {
+        padding-top: calc(var(--margin-v-desktop) * 2) !important;
+        padding-bottom: calc(var(--margin-v-desktop) * 2) !important;
     }
 }
 
-.u-invisible {
-    visibility: hidden;
+// 2. Margini (Top & Bottom)
+// Scala: md = 1x margin, xl = 2x margin
+
+.u-margin-t--md {
+    margin-top: var(--margin-v-mobile) !important;
+
+    @media (min-width: 768px) {
+        margin-top: var(--margin-v-desktop) !important;
+    }
 }
 
-.u-display--block {
+.u-margin-b--md {
+    margin-bottom: var(--margin-v-mobile) !important;
+
+    @media (min-width: 768px) {
+        margin-bottom: var(--margin-v-desktop) !important;
+    }
+}
+
+.u-margin-b--xl {
+    margin-bottom: calc(var(--margin-v-mobile) * 2) !important;
+
+    @media (min-width: 768px) {
+        margin-bottom: calc(var(--margin-v-desktop) * 2) !important;
+    }
+}
+
+// 3. Visibilità Condizionale
+// Nasconde l'elemento su desktop (da 768px in su), lo mostra solo su mobile
+.u-visible--mobile-only {
     display: block !important;
-}
 
-.u-rounded {
-    border-radius: 50%;
-    overflow: hidden;
-
-    svg {
-        position: relative;
-        top: -1px;
-        left: 2px;
+    @media (min-width: 768px) {
+        display: none !important;
     }
 }
 
-.u-page-title {
-    margin-bottom: 2em;
+// Forza l'allineamento del testo
+.u-text--center {
+    text-align: center !important;
 }
 
-.u-padding-v {
-
-    &--md {
-        padding-top: 2rem;
-        padding-bottom: 2rem;
-    }
-
-    &--large {
-        padding-top: 4rem;
-        padding-bottom: 4rem;
-
-        @media (min-width: 977px) {
-            padding-top: 6rem;
-            padding-bottom: 6rem;
-        }
-    }
+.u-text--right {
+    text-align: right !important;
 }
