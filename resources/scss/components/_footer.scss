@@ -1,0 +1,99 @@
+@use '../base/variables' as *;
+
+/* ==========================================
+   FOOTER COMPONENT
+   ========================================== */
+.footer {
+
+    // Parte superiore: Social
+    &__social {
+        padding-block: clamp(2rem, 5vw, 3rem);
+        background-color: var(--color-light-blue);
+        text-align: center;
+
+        .h {
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    // Parte principale: Link e info
+    &__main {
+        padding-block: var(--space-v-mobile);
+        background-color: var(--color-blue);
+        color: var(--color-white);
+
+        @media (min-width: 768px) {
+            padding-block: var(--space-v-desktop);
+        }
+    }
+
+    // La griglia semantica (3 colonne desktop, 1 mobile)
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem var(--grid-gap);
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+            text-align: center;
+        }
+    }
+
+    &__column {
+        .h {
+            margin-bottom: 1.5rem;
+        }
+    }
+}
+
+/* ==========================================
+   FOOTER MENU
+   ========================================== */
+.footer-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    &__item {
+        margin-bottom: 0.75rem;
+
+        // Alternanza rotazioni degli sfondi in hover (stile Zine)
+        &:nth-child(2n) .footer-menu__link::before {
+            transform: rotate(2deg);
+        }
+
+        &:nth-child(3n) .footer-menu__link::before {
+            transform: rotate(-1.5deg);
+        }
+    }
+
+    &__link {
+        display: inline-block;
+        position: relative;
+        padding: 0.2em 0.5em;
+        text-decoration: none;
+        color: inherit;
+        font-family: var(--font-main);
+        font-weight: 500;
+        z-index: 1;
+        transition: color 0.2s ease;
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: transparent;
+            z-index: -1;
+            transform: rotate(-2deg);
+            transition: background-color 0.2s ease;
+        }
+
+        &:hover {
+            color: var(--color-white);
+
+            &::before {
+                background-color: var(--color-red);
+            }
+        }
+    }
+}

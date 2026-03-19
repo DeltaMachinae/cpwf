@@ -1,0 +1,108 @@
+@use '../base/variables' as *;
+
+/* ==========================================
+   CONTACT SECTION & FORM
+   ========================================== */
+
+// Contenitore per centrare il form (Sostituisce col-8)
+.contact-section__wrapper {
+    max-width: 800px;
+    margin-inline: auto;
+    padding-block: 2rem;
+}
+
+.contact-form {
+    position: relative;
+
+    // Griglia interna per Nome/Cognome (Sostituisce l-row/l-col-6)
+    &__row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--grid-gap, 2rem);
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+            gap: 0; // Il margine bottom del group gestirà lo spazio
+        }
+    }
+
+    &__group {
+        position: relative;
+        margin-bottom: 3.5rem; // Spazio aumentato per ospitare l'etichetta sticker
+    }
+
+    /* LABEL STICKER (TAPE STYLE) */
+    &__label-wrapper {
+        position: absolute;
+        top: -18px;
+        left: 15px;
+        z-index: 10;
+        padding: 0.2rem 1.2rem;
+        pointer-events: none; // Evita interferenze con il click sull'input
+
+        label {
+            position: relative;
+            z-index: 2;
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            color: var(--color-white);
+            letter-spacing: 0.05em;
+        }
+    }
+
+    &__label-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        transform: rotate(-3deg);
+        box-shadow: 3px 3px 0px var(--color-black);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    /* INPUT & TEXTAREA */
+    &__input {
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.05);
+        border: 2px solid var(--color-white);
+        padding: 1.5rem 1.2rem 1rem; // Padding superiore abbondante per non coprire il testo con la label
+        color: var(--color-white);
+        font-family: var(--font-main);
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        outline: none;
+
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.3);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+
+        &:focus {
+            border-color: var(--color-red);
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(163, 39, 37, 0.15);
+
+            // Al focus lo sticker si raddrizza leggermente
+            &~.contact-form__label-wrapper .contact-form__label-bg {
+                transform: rotate(0deg) scale(1.05);
+            }
+        }
+    }
+
+    &__textarea {
+        min-height: 160px;
+        resize: vertical;
+    }
+
+    /* LOGICA VARIAZIONE ROTAZIONI */
+    // Alterniamo le rotazioni dei background per un look più analogico/punk
+    &__group:nth-child(even) .contact-form__label-bg {
+        transform: rotate(2deg);
+    }
+
+    /* SUBMIT BUTTON WRAPPER */
+    .text-center {
+        margin-top: 1rem;
+    }
+}

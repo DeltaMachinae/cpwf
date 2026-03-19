@@ -5,39 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Captain Paul Watson Foundation | Italia</title>
-    <link rel="stylesheet" href="./src/scss/main.scss">
+    <link rel="stylesheet" href="./resources/scss/main.scss">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
-<body data-page="default">
+<body>
 
-    <header class="header u-bg--blue">
-        <div class="l-container header__wrapper">
+    <header class="header bg-blue">
+        <div class="container header__wrapper">
 
             <a href="/" class="header__logo">
-                <img src="assets/media/cpwf-logo.webp" alt="Captain Paul Watson Foundation Logo" width="370"
+                <img src="./resources/images/cpwf-logo.webp" alt="Captain Paul Watson Foundation Logo" width="370"
                     height="132">
             </a>
 
             <nav class="nav" aria-label="Main Navigation">
                 <ul class="nav__list">
-                    <li class="nav__item"><a href="captain-paul-watson/" class="nav__link">Captain Paul Watson</a>
-                    </li>
-                    <li class="nav__item"><a href="campagne/" class="nav__link">Campagne</a></li>
-                    <li class="nav__item"><a href="news/" class="nav__link">News</a></li>
-                    <li class="nav__item"><a href="azioni/" class="nav__link">Azioni</a></li>
-                    <li class="nav__item"><a href="stampa/" class="nav__link">Stampa</a></li>
+                    <li class="nav__item"><a href="/pages/about.html" class="nav__link">Captain Paul Watson</a></li>
+                    <li class="nav__item"><a href="/pages/campaigns.html" class="nav__link">Campagne</a></li>
+                    <li class="nav__item"><a href="/pages/news.html" class="nav__link">News</a></li>
+                    <li class="nav__item"><a href="/pages/actions.html" class="nav__link">Azioni</a></li>
+                    <li class="nav__item"><a href="/pages/press.html" class="nav__link">Stampa</a></li>
 
-                    <li class="nav__item u-visible--mobile-only">
-                        <a href="/donazioni/" class="btn-main">DONA ORA</a>
+                    <li class="nav__item visible-mobile-only">
+                        <a href="/pages/donations.html" class="btn-main">DONA ORA</a>
                     </li>
                 </ul>
             </nav>
 
             <div class="header__actions">
-                <a href="/donazioni/" class="btn-main">DONA ORA</a>
+                <a href="/pages/donations.html" class="btn-main">DONA ORA</a>
 
-                <button id="nav-toggle" class="nav-toggle u-bg--red" aria-label="Menu">
+                <button id="nav-toggle" class="nav-toggle bg-red" aria-label="Menu">
                     <span>Menu</span>
 
                     <i class="icon icon--menu">
@@ -66,14 +65,14 @@
         <section class="hero">
             <div class="hero__content">
                 <picture>
-                    <source media="(max-width: 768px)" srcset="assets/media/images/hero/hero-mobile.webp">
-                    <img src="assets/media/images/hero/hero-desktop.webp" alt="Captain Paul Watson Foundation Ship"
+                    <source media="(max-width: 768px)" srcset="./resources/images/hero/hero-mobile.webp">
+                    <img src="./resources/images/hero/hero-desktop.webp" alt="Captain Paul Watson Foundation Ship"
                         class="hero__image" loading="eager" fetchpriority="high">
                 </picture>
                 <div class="hero__overlay">
-                    <div class="l-container hero__container">
+                    <div class="container hero__container">
                         <div class="hero__body">
-                            <h1 class="hero__title h h--1 h--caps u-color--white">
+                            <h1 class="hero__title h h--1 h--caps text-white">
                                 Difendiamo gli Oceani
                             </h1>
                             <div class="hero__description">
@@ -89,65 +88,67 @@
         </section>
 
         <section class="missions-live bg-black text-white">
-            <div class="l-container">
+            <div class="container">
                 <h2 class="text-primary mb-5">
                     <span class="led-pulse"></span> OPERAZIONI ATTIVE
                 </h2>
 
-                <div class="l-row">
-                    <article class="l-col-3 mission-item">
+                <div class="missions-live__grid">
+                    <article class="mission-item">
                         <div class="mission-patch-wrapper">
                             <div class="mission-patch">
-                                <img src="assets/media/images/campaign/Hono_Hui.jpg" alt="Operazione Hono Hui">
+                                <img src="./resources/images/campaign/Hono_Hui.jpg" alt="Operazione Hono Hui">
                             </div>
                             <div class="mission-status-badge">LIVE</div>
                         </div>
                         <div class="mission-content">
                             <h3 class="font-primary">OPERATION HONO HUI</h3>
-                            <p class="font-secondary">Protezione della Vaquita dall'estinzione nel Mare di Cortez.</p>
-                            <a href="#" class="btn-main">ENTRA NEL LOG</a>
+                            <p class="font-secondary">Protezione delle tartarughe marine lungo le coste italiane.</p>
+                            <a href="#" class="btn-main">SCOPRI DI PIÙ</a>
                         </div>
                     </article>
 
-                    <article class="l-col-3 mission-item">
+                    <article class="mission-item">
                         <div class="mission-patch-wrapper">
                             <div class="mission-patch">
-                                <img src="assets/media/images/campaign/Scuba_Team.jpg" alt="Scuba Team Italia">
+                                <img src="./resources/images/campaign/Scuba_Team.jpg" alt="Scuba Team Italia">
                             </div>
                             <div class="mission-status-badge">LIVE</div>
                         </div>
                         <div class="mission-content">
                             <h3 class="font-primary">SCUBA TEAM</h3>
-                            <p class="font-secondary">Azione diretta contro la distruzione delle barriere coralline.</p>
-                            <a href="#" class="btn-main">ENTRA NEL LOG</a>
+                            <p class="font-secondary">Azioni di monitoraggio e pulizia dei fondali marini.</p>
+                            <a href="#" class="btn-main">SCOPRI DI PIÙ</a>
                         </div>
                     </article>
 
-                    <article class="l-col-3 mission-item">
+                    <article class="mission-item">
                         <div class="mission-patch-wrapper">
                             <div class="mission-patch">
-                                <img src="assets/media/images/campaign/Aves.jpg" alt="Campagna Aves">
+                                <img src="./resources/images/campaign/Aves.jpg" alt="Campagna Aves">
                             </div>
                             <div class="mission-status-badge">LIVE</div>
                         </div>
                         <div class="mission-content">
                             <h3 class="font-primary">CAMPAGNA AVES</h3>
-                            <p class="font-secondary">Opposizione al massacro dei globicefali nelle Isole Faroe.</p>
-                            <a href="#" class="btn-main">ENTRA NEL LOG</a>
+                            <p class="font-secondary">Tutela degli uccelli marini e costieri che nidificano lungo le
+                                spiagge.</p>
+                            <a href="#" class="btn-main">SCOPRI DI PIÙ</a>
                         </div>
                     </article>
 
-                    <article class="l-col-3 mission-item">
+                    <article class="mission-item">
                         <div class="mission-patch-wrapper">
                             <div class="mission-patch">
-                                <img src="assets/media/images/campaign/Clean_Up.jpg" alt="Clean Up team Italia">
+                                <img src="./resources/images/campaign/Clean_Up.jpg" alt="Clean Up team Italia">
                             </div>
                             <div class="mission-status-badge">LIVE</div>
                         </div>
                         <div class="mission-content">
                             <h3 class="font-primary">CLEAN UP TEAM</h3>
-                            <p class="font-secondary">Rimozione delle reti fantasma illegali dai nostri mari.</p>
-                            <a href="#" class="btn-main">ENTRA NEL LOG</a>
+                            <p class="font-secondary">Interventi di pulizia e recupero di rifiuti marini e reti da pesca
+                                abbandonate.</p>
+                            <a href="#" class="btn-main">SCOPRI DI PIÙ</a>
                         </div>
                     </article>
                 </div>
@@ -155,10 +156,10 @@
         </section>
 
         <section class="about-manifesto">
-            <div class="l-container">
-                <div class="l-row">
+            <div class="container">
+                <div class="about-manifesto__grid">
 
-                    <div class="l-col-8">
+                    <div class="manifesto__text-col">
                         <h2 class="manifesto__title">
                             Non stiamo solo <span class="highlight">Guardando.</span>
                             Stiamo combattendo <span class="highlight">Per loro.</span>
@@ -172,9 +173,9 @@
                         </div>
                     </div>
 
-                    <div class="l-col-4">
+                    <div class="manifesto__media-col">
                         <div class="manifesto__portrait">
-                            <img src="assets/media/images/people/paul_watson.jpg" alt="Captain Paul Watson">
+                            <img src="./resources/images/people/paul_watson.jpg" alt="Captain Paul Watson">
                             <div class="manifesto__signature">CPT. PAUL WATSON</div>
                         </div>
                     </div>
@@ -184,15 +185,15 @@
         </section>
 
         <section class="action-grid bg-blue text-white">
-            <div class="l-container">
+            <div class="container">
                 <header class="text-primary mb-5">
                     <h2 class="h h--2 h--caps">Sostieni la <span class="text-red">Flotta</span></h2>
                 </header>
 
-                <div class="l-row">
-                    <article class="l-col-4 action-card">
+                <div class="action-grid__list">
+                    <article class="action-card">
                         <div class="action-card__wrapper">
-                            <div class="action-card__bg-box u-bg--blue"></div>
+                            <div class="action-card__bg-box bg-blue"></div>
                             <div class="action-card__content">
                                 <span class="action-card__number">01</span>
                                 <h3 class="h h--3 h--caps">Unisciti a noi</h3>
@@ -204,9 +205,9 @@
                         </div>
                     </article>
 
-                    <article class="l-col-4 action-card">
+                    <article class="action-card">
                         <div class="action-card__wrapper">
-                            <div class="action-card__bg-box u-bg--blue"></div>
+                            <div class="action-card__bg-box bg-blue"></div>
                             <div class="action-card__content">
                                 <span class="action-card__number">02</span>
                                 <h3 class="h h--3 h--caps">Rifornisci l'azione</h3>
@@ -218,9 +219,9 @@
                         </div>
                     </article>
 
-                    <article class="l-col-4 action-card">
+                    <article class="action-card">
                         <div class="action-card__wrapper">
-                            <div class="action-card__bg-box u-bg--blue"></div>
+                            <div class="action-card__bg-box bg-blue"></div>
                             <div class="action-card__content">
                                 <span class="action-card__number">03</span>
                                 <h3 class="h h--3 h--caps">Equipaggiati</h3>
@@ -236,16 +237,15 @@
         </section>
 
         <section class="bg-white text-black">
-            <div class="l-container">
+            <div class="container">
                 <header class="text-center" style="margin-bottom: var(--margin-v-desktop);">
                     <h2 class="h h--1 h--caps">Dal <span class="text-red">Fronte</span></h2>
                 </header>
 
-                <div class="l-row">
-                    <article class="l-col-4 news-card">
+                <div class="news__grid">
+                    <article class="news-card">
                         <div class="news-card__image-wrapper">
-                            <img src="assets/media/images/news/news1.jpg" alt="Mission Update">
-
+                            <img src="./resources/images/news/news1.jpg" alt="Mission Update">
                             <div class="news-card__label">
                                 <div class="news-card__label-bg bg-red"></div>
                                 <span class="news-card__label-text h h--caps">Campagna</span>
@@ -261,9 +261,9 @@
                         </div>
                     </article>
 
-                    <article class="l-col-4 news-card">
+                    <article class="news-card">
                         <div class="news-card__image-wrapper">
-                            <img src="assets/media/images/news/news1.jpg" alt="Mission Update" alt="Legal Action">
+                            <img src="./resources/images/news/news1.jpg" alt="Legal Action">
                             <div class="news-card__label">
                                 <div class="news-card__label-bg bg-blue"></div>
                                 <span class="news-card__label-text h h--caps">Legale</span>
@@ -278,9 +278,9 @@
                         </div>
                     </article>
 
-                    <article class="l-col-4 news-card">
+                    <article class="news-card">
                         <div class="news-card__image-wrapper">
-                            <img src="assets/media/images/news/news1.jpg" alt="Mission Update" alt="Shop News">
+                            <img src="./resources/images/news/news1.jpg" alt="Shop News">
                             <div class="news-card__label">
                                 <div class="news-card__label-bg bg-red"></div>
                                 <span class="news-card__label-text h h--caps">Shop</span>
@@ -299,61 +299,58 @@
         </section>
 
         <section class="bg-black text-white">
-            <div class="l-container">
+            <div class="container">
                 <header class="text-center" style="margin-bottom: var(--margin-v-desktop);">
                     <h2 class="h h--1 h--caps">Frequenza <span class="text-red">Aperta</span></h2>
                     <p class="main-content">Lasciaci i dati per essere ricontattato dal comando operativo.</p>
                 </header>
 
-                <div class="l-row" style="justify-content: center;">
-                    <div class="l-col-8">
-                        <form class="contact-form">
+                <div class="contact-section__wrapper">
+                    <form class="contact-form">
 
-                            <div class="l-row">
-                                <div class="l-col-6 contact-form__group">
-                                    <div class="contact-form__label-wrapper">
-                                        <div class="contact-form__label-bg bg-red"></div>
-                                        <label for="nome" class="h h--caps">Nome</label>
-                                    </div>
-                                    <input type="text" id="nome" name="nome" class="contact-form__input"
-                                        placeholder="Inserisci il tuo nome" required>
-                                </div>
-
-                                <div class="l-col-6 contact-form__group">
-                                    <div class="contact-form__label-wrapper">
-                                        <div class="contact-form__label-bg bg-red"></div>
-                                        <label for="cognome" class="h h--caps">Cognome</label>
-                                    </div>
-                                    <input type="text" id="cognome" name="cognome" class="contact-form__input"
-                                        placeholder="Inserisci il tuo cognome" required>
-                                </div>
-                            </div>
-
+                        <div class="contact-form__row">
                             <div class="contact-form__group">
                                 <div class="contact-form__label-wrapper">
-                                    <div class="contact-form__label-bg bg-blue"></div>
-                                    <label for="email" class="h h--caps">Email Operativa</label>
+                                    <div class="contact-form__label-bg bg-red"></div>
+                                    <label for="nome" class="h h--caps">Nome</label>
                                 </div>
-                                <input type="email" id="email" name="email" class="contact-form__input"
-                                    placeholder="tua@email.com" required>
+                                <input type="text" id="nome" name="nome" class="contact-form__input"
+                                    placeholder="Inserisci il tuo nome" required>
                             </div>
 
                             <div class="contact-form__group">
                                 <div class="contact-form__label-wrapper">
                                     <div class="contact-form__label-bg bg-red"></div>
-                                    <label for="messaggio" class="h h--caps">Messaggio</label>
+                                    <label for="cognome" class="h h--caps">Cognome</label>
                                 </div>
-                                <textarea id="messaggio" name="messaggio"
-                                    class="contact-form__input contact-form__textarea"
-                                    placeholder="Scrivi qui il tuo messaggio..."></textarea>
+                                <input type="text" id="cognome" name="cognome" class="contact-form__input"
+                                    placeholder="Inserisci il tuo cognome" required>
                             </div>
+                        </div>
 
-                            <div class="text-center" style="margin-top: 3rem;">
-                                <button type="submit" class="btn-main">Invia Trasmissione</button>
+                        <div class="contact-form__group">
+                            <div class="contact-form__label-wrapper">
+                                <div class="contact-form__label-bg bg-blue"></div>
+                                <label for="email" class="h h--caps">Email Operativa</label>
                             </div>
+                            <input type="email" id="email" name="email" class="contact-form__input"
+                                placeholder="tua@email.com" required>
+                        </div>
 
-                        </form>
-                    </div>
+                        <div class="contact-form__group">
+                            <div class="contact-form__label-wrapper">
+                                <div class="contact-form__label-bg bg-red"></div>
+                                <label for="messaggio" class="h h--caps">Messaggio</label>
+                            </div>
+                            <textarea id="messaggio" name="messaggio" class="contact-form__input contact-form__textarea"
+                                placeholder="Scrivi qui il tuo messaggio..."></textarea>
+                        </div>
+
+                        <div class="text-center" style="margin-top: 3rem;">
+                            <button type="submit" class="btn-main">Invia Trasmissione</button>
+                        </div>
+
+                    </form>
                 </div>
             </div>
         </section>
@@ -362,9 +359,9 @@
 
     <footer class="footer">
 
-        <div class="footer__social u-bg--light-blue">
-            <div class="l-container">
-                <h3 class="h h--3 h--caps u-text--center">Seguici su:</h3>
+        <div class="footer__social bg-light-blue">
+            <div class="container">
+                <h3 class="h h--3 h--caps text-center">Seguici su:</h3>
                 <ul class="icon-list icon-list--center">
                     <li class="icon-list__item">
                         <a href="#" aria-label="Facebook" class="icon-list__link">
@@ -386,36 +383,31 @@
             </div>
         </div>
 
-        <div class="footer__main u-bg--blue u-color--white">
-            <div class="l-container">
-                <div class="l-row">
-                    <div class="l-col-8 l-col-xxs-12">
-                        <p class="u-margin-b--md">Captain Paul Watson Foundation Italia è un'organizzazione dedicata
-                            alla protezione della fauna marina tramite l'azione diretta.</p>
-                    </div>
-                </div>
-
-                <div class="l-row">
-                    <div class="l-col-4 l-col-xxs-12">
-                        <h3 class="h h--3 h--caps">Mitmachen</h3>
+        <div class="footer__main bg-blue text-white">
+            <div class="container">
+                <div class="footer__grid">
+                    <div class="footer__column">
+                        <h3 class="h h--3 h--caps">Partecipa</h3>
                         <ul class="footer-menu">
-                            <li class="footer-menu__item"><a href="#" class="footer-menu__link">Auf einen Blick</a>
-                            </li>
-                            <li class="footer-menu__item"><a href="#" class="footer-menu__link">Ortsgruppen</a></li>
+                            <li class="footer-menu__item"><a href="#" class="footer-menu__link">Captain Paul Watson
+                                    Italia</a></li>
+                            <li class="footer-menu__item"><a href="#" class="footer-menu__link">Campagne</a></li>
+                            <li class="footer-menu__item"><a href="#" class="footer-menu__link">Donazioni</a></li>
                         </ul>
                     </div>
-                    <div class="l-col-4 l-col-xxs-12">
-                        <h3 class="h h--3 h--caps">Aktuelles</h3>
+                    <div class="footer__column">
+                        <h3 class="h h--3 h--caps">Attività</h3>
                         <ul class="footer-menu">
-                            <li class="footer-menu__item"><a href="#" class="footer-menu__link">Blog</a></li>
+                            <li class="footer-menu__item"><a href="#" class="footer-menu__link">News</a></li>
                             <li class="footer-menu__item"><a href="#" class="footer-menu__link">Newsletter</a></li>
                         </ul>
                     </div>
-                    <div class="l-col-4 l-col-xxs-12">
-                        <h3 class="h h--3 h--caps">Kontakt & Legal</h3>
+                    <div class="footer__column">
+                        <h3 class="h h--3 h--caps">Contatti</h3>
                         <ul class="footer-menu">
-                            <li class="footer-menu__item"><a href="#" class="footer-menu__link">Impressum</a></li>
-                            <li class="footer-menu__item"><a href="#" class="footer-menu__link">Datenschutz</a></li>
+                            <li class="footer-menu__item"><a href="#" class="footer-menu__link">Contattaci</a></li>
+                            <li class="footer-menu__item"><a href="#" class="footer-menu__link">Privacy Policy</a></li>
+                            <li class="footer-menu__item"><a href="#" class="footer-menu__link">Cookie Policy</a></li>
                         </ul>
                     </div>
                 </div>
@@ -423,7 +415,7 @@
         </div>
     </footer>
 
-    <script type="module" src="./src/js/init.js"></script>
+    <script type="module" src="./resources/js/main.js"></script>
 </body>
 
 </html>

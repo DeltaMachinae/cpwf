@@ -1,0 +1,10 @@
+.cta-section {
+    padding: 5rem 0;
+    text-align: center;
+
+    &--about {
+        background-color: var(--color-red);
+        color: var(--color-white);
+        padding-block: 4rem;
+    }
+}

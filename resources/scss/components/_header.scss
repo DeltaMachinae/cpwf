@@ -1,0 +1,212 @@
+@use '../base/variables' as *;
+
+/* ==========================================
+   HEADER MAIN CONTAINER
+   ========================================== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--color-blue);
+    height: 80px;
+    transition: box-shadow 0.3s ease;
+
+    @media (min-width: 977px) {
+        height: 100px;
+    }
+
+    &.is-scrolled {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        padding-inline: 1rem;
+        position: relative;
+        z-index: 1001; // Sopra l'overlay mobile
+
+        @media (min-width: 977px) {
+            padding-inline: 2rem;
+        }
+    }
+
+    &__logo {
+        flex: 0 0 auto;
+
+        img {
+            height: 50px;
+            width: auto;
+            display: block;
+
+            @media (min-width: 977px) {
+                height: 70px;
+            }
+        }
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        // Nasconde il pulsante principale dall'header su mobile
+        // (perché appare già dentro il menu overlay)
+        .btn-main {
+            @media (max-width: 976px) {
+                display: none;
+            }
+        }
+    }
+}
+
+/* ==========================================
+   NAVIGATION & MOBILE OVERLAY
+   ========================================== */
+.nav {
+
+    // Mobile View (Overlay Fullscreen)
+    @media (max-width: 976px) {
+        position: fixed;
+        inset: 0;
+        background-color: var(--color-blue);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+
+        // Stato Chiuso
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+
+        .is-open & {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+    }
+
+    &__list {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        @media (max-width: 976px) {
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        @media (min-width: 977px) {
+            gap: 0.5rem;
+        }
+    }
+
+    &__item {
+
+        // Gestione del pulsante Dona Ora quando è dentro la lista (mobile only)
+        .btn-main {
+            margin-top: 1rem;
+        }
+
+        // Alternanza Rotazioni degli sfondi dei link
+        &:nth-child(2n) .nav__link::before {
+            transform: rotate(1deg);
+        }
+
+        &:nth-child(3n) .nav__link::before {
+            transform: rotate(-1.5deg);
+        }
+    }
+
+    &__link {
+        display: block;
+        font-family: var(--font-heading);
+        text-transform: uppercase;
+        text-decoration: none;
+        color: var(--color-white);
+        position: relative;
+        padding: 0.5em 0.8em 0.1em;
+        font-size: 2rem; // Mobile default
+        transition: color 0.2s ease;
+
+        @media (min-width: 977px) {
+            font-size: 1.3rem;
+        }
+
+        // Lo sfondo "storto" che appare in hover
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: transparent;
+            z-index: -1;
+            transform: rotate(-3deg);
+            transition: background-color 0.2s ease;
+        }
+
+        &:hover::before {
+            background-color: var(--color-red);
+        }
+    }
+}
+
+/* ==========================================
+   TOGGLE BUTTON (Hamburger)
+   ========================================== */
+.nav-toggle {
+    background-color: var(--color-red);
+    color: var(--color-white);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4em 0.8em;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    line-height: 1;
+    z-index: 1002;
+
+    @media (min-width: 977px) {
+        display: none;
+    }
+
+    span {
+        position: relative;
+        top: 2px;
+    }
+
+    .icon {
+        width: 24px;
+        height: 24px;
+
+        &--menu {
+            display: block;
+        }
+
+        &--close {
+            display: none;
+        }
+    }
+
+    // Logica Swap Icone quando il menu è aperto
+    .is-open & {
+        .icon--menu {
+            display: none;
+        }
+
+        .icon--close {
+            display: block;
+        }
+    }
+}

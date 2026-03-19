@@ -1,0 +1,141 @@
+@use '../base/variables' as *;
+
+/* ==========================================
+   NEWS GRID & CARD COMPONENT
+   ========================================== */
+
+.news__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem var(--grid-gap);
+    margin-block: 2rem;
+
+    @media (max-width: 992px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+}
+
+.news-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: transform 0.3s ease;
+
+    &__image-wrapper {
+        position: relative;
+        width: 100%;
+        height: 250px;
+        overflow: visible; // Permette all'etichetta di "uscire" dal bordo inferiore
+        margin-bottom: 2rem;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(100%);
+            transition: filter 0.4s ease;
+        }
+    }
+
+    /* ETICHETTA SFALSATA (ZINE STYLE) */
+    &__label {
+        position: absolute;
+        bottom: -15px;
+        left: 15px;
+        z-index: 10;
+        padding: 0.4rem 1.2rem;
+        display: inline-block;
+    }
+
+    &__label-bg {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        transform: rotate(-3deg);
+        box-shadow: 4px 4px 0px var(--color-black);
+        transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s ease;
+    }
+
+    &__label-text {
+        font-family: var(--font-heading);
+        font-size: 1.1rem;
+        color: var(--color-white);
+        text-transform: uppercase;
+        display: block;
+        transform: rotate(1deg); // Contrasto di rotazione rispetto allo sfondo
+    }
+
+    /* CONTENUTO TESTUALE */
+    &__content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        padding-top: 0.5rem;
+    }
+
+    &__date {
+        display: block;
+        font-family: var(--font-main);
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.75rem;
+        opacity: 0.6;
+    }
+
+    h3 {
+        font-family: var(--font-heading);
+        font-size: 1.75rem;
+        line-height: 1.1;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        transition: color 0.3s ease;
+    }
+
+    p {
+        font-family: var(--font-main);
+        font-size: 1rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+        opacity: 0.8;
+    }
+
+    &__link {
+        margin-top: auto; // Spinge il link sempre in fondo alla card
+        text-decoration: none;
+        font-family: var(--font-heading);
+        text-transform: uppercase;
+        color: var(--color-red);
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+
+        &:hover {
+            letter-spacing: 0.05em;
+            transform: translateX(8px);
+        }
+    }
+
+    /* EFFETTO HOVER SULLA CARD INTERA */
+    &:hover {
+        .news-card__image-wrapper img {
+            filter: grayscale(0%);
+        }
+
+        .news-card__label-bg {
+            transform: rotate(0deg) scale(1.1);
+            background-color: var(--color-black) !important;
+        }
+
+        h3 {
+            color: var(--color-red);
+        }
+    }
+}

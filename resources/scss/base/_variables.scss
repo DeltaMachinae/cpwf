@@ -1,0 +1,47 @@
+// src/scss/base/_variables.scss
+
+$breakpoints: (
+    'xs': 480px,
+    'sm': 768px,
+    'md': 992px,
+    'lg': 1200px
+);
+
+:root {
+    // Colori
+    --color-blue: #050444;
+    --color-red: #a32725;
+    --color-light-blue: #008ab9;
+    --color-black: #000000;
+    --color-white: #ffffff;
+
+    // Tipografia
+    --font-main: 'Montserrat', system-ui, -apple-system, sans-serif;
+    --font-heading: 'ZingRustDemo', sans-serif;
+    --font-accent: 'Montserrat', sans-serif;
+
+    // Spaziature e Layout
+    --container-max-width: 1400px;
+    --container-padding: 1.5rem;
+    --space-v-desktop: 5rem;
+    --space-v-mobile: 3rem;
+    --grid-gap: 2rem;
+}
+
+$colors: (
+    'blue': var(--color-blue),
+    'red': var(--color-red),
+    'light-blue': var(--color-light-blue),
+    'black': var(--color-black),
+    'white': var(--color-white)
+);
+
+@each $name, $value in $colors {
+    .bg-#{$name} {
+        background-color: #{$value};
+    }
+
+    .text-#{$name} {
+        color: #{$value};
+    }
+}
