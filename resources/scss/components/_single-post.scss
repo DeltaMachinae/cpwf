@@ -1,0 +1,50 @@
+@use '../base/variables' as *;
+
+// Contenitore ottimizzato per la lettura di testi lunghi (max ~800px)
+.container--narrow {
+    max-width: 800px;
+    margin-inline: auto;
+}
+
+.post-content {
+    padding-block: var(--margin-v-desktop);
+
+    blockquote {
+        margin: 3rem 0;
+        padding: 2rem;
+        background-color: var(--color-black);
+        color: var(--color-white);
+        border-left: 10px solid var(--color-red);
+        font-family: var(--font-heading);
+        font-size: 1.8rem;
+        text-transform: uppercase;
+        line-height: 1.2;
+        transform: rotate(-1deg); // Stile punk/zine
+
+        cite {
+            display: block;
+            font-family: var(--font-main);
+            font-size: 0.9rem;
+            text-transform: none;
+            margin-top: 1rem;
+            color: var(--color-red);
+            font-weight: 700;
+        }
+    }
+}
+
+.post-meta {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    transform: rotate(1deg);
+    margin-top: 2rem;
+    box-shadow: 4px 4px 0 var(--color-red);
+}
+
+.post-footer {
+    margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: 2px dashed var(--color-black);
+}

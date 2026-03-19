@@ -1,34 +1,35 @@
 @use '../base/variables' as *;
 
-/* ==========================================
-   CONTACT SECTION & FORM
-   ========================================== */
-
-// Contenitore per centrare il form (Sostituisce col-8)
 .contact-section__wrapper {
     max-width: 800px;
     margin-inline: auto;
     padding-block: 2rem;
 }
 
+.contact-info {
+    .zine-text-block {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+}
+
 .contact-form {
     position: relative;
 
-    // Griglia interna per Nome/Cognome (Sostituisce l-row/l-col-6)
     &__row {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: var(--grid-gap, 2rem);
+        gap: 2rem;
 
         @media (max-width: 768px) {
             grid-template-columns: 1fr;
-            gap: 0; // Il margine bottom del group gestirà lo spazio
+            gap: 0;
         }
     }
 
     &__group {
         position: relative;
-        margin-bottom: 3.5rem; // Spazio aumentato per ospitare l'etichetta sticker
+        margin-bottom: 3.5rem;
     }
 
     /* LABEL STICKER (TAPE STYLE) */
@@ -38,7 +39,7 @@
         left: 15px;
         z-index: 10;
         padding: 0.2rem 1.2rem;
-        pointer-events: none; // Evita interferenze con il click sull'input
+        pointer-events: none;
 
         label {
             position: relative;
@@ -65,7 +66,7 @@
         width: 100%;
         background-color: rgba(255, 255, 255, 0.05);
         border: 2px solid var(--color-white);
-        padding: 1.5rem 1.2rem 1rem; // Padding superiore abbondante per non coprire il testo con la label
+        padding: 1.5rem 1.2rem 1rem;
         color: var(--color-white);
         font-family: var(--font-main);
         font-size: 1rem;
@@ -83,7 +84,7 @@
             background-color: rgba(255, 255, 255, 0.1);
             box-shadow: 0 0 20px rgba(163, 39, 37, 0.15);
 
-            // Al focus lo sticker si raddrizza leggermente
+            // Selettore fratello: quando l'input è focus, anima la label wrapper
             &~.contact-form__label-wrapper .contact-form__label-bg {
                 transform: rotate(0deg) scale(1.05);
             }
@@ -96,12 +97,10 @@
     }
 
     /* LOGICA VARIAZIONE ROTAZIONI */
-    // Alterniamo le rotazioni dei background per un look più analogico/punk
     &__group:nth-child(even) .contact-form__label-bg {
         transform: rotate(2deg);
     }
 
-    /* SUBMIT BUTTON WRAPPER */
     .text-center {
         margin-top: 1rem;
     }

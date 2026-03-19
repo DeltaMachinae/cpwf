@@ -1,0 +1,72 @@
+@use '../base/variables' as *;
+
+.campaign-section {
+    padding-block: clamp(4rem, 10vw, 8rem); // Ampia spaziatura tra sezioni
+    overflow: hidden;
+
+    // Centratura e dimensione delle immagini
+    .about-gallery__grid,
+    .zine-image-block {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .zine-image-block--large {
+        width: 100%;
+        max-width: 600px; // Immagine più grande
+        margin: 0 auto;
+
+        .zine-image-block__img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            display: block;
+        }
+    }
+
+    // Bottoni nelle sezioni testo
+    .zine-text-block {
+        .btn-main {
+            margin-top: 2.5rem;
+            display: inline-block;
+        }
+    }
+}
+
+// Layout alternato su desktop
+@media (min-width: 769px) {
+    .about-intro__grid {
+        align-items: center; // Centra verticalmente testo e immagine
+        gap: 4rem;
+
+        &--reverse {
+            // Se nel codice l'immagine è prima del testo, 
+            // ma vuoi che appaia a sinistra su desktop
+            direction: ltr;
+        }
+    }
+}
+
+// Correzione CTA Finale (stile About)
+.cta-section {
+    padding-block: 6rem;
+    text-align: center;
+
+    &__content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .btn-main--white {
+        background-color: var(--color-white);
+        color: var(--color-red);
+        margin-top: 3rem;
+
+        &:hover {
+            background-color: var(--color-black);
+            color: var(--color-white);
+        }
+    }
+}

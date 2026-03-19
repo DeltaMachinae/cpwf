@@ -14,7 +14,6 @@ section {
     }
 }
 
-// Utility class per nascondere su desktop
 .visible-mobile-only {
     @media (min-width: 977px) {
         display: none !important;
