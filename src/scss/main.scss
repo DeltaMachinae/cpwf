@@ -1,47 +1,37 @@
 /**
  * CAPTAIN PAUL WATSON FOUNDATION - ITALY
  * Final Orchestrator Style (ITCSS)
- * Rifatto sulla base della struttura file reale
  */
 
-// 01. Settings
-@use '01-settings/colors';
-@use '01-settings/fonts';
-@use '01-settings/variables';
+// 1. SETTINGS & TOOLS (Abstracts)
+// Variabili e configurazioni che non generano CSS reale
+@use "base/variables";
+@use "base/colors";
 
-// 02. Tools
+// 2. GENERIC (Reset)
+// Stili di base per tutto il browser
+@use "abstracts/reset";
 
-// 03. Generic
-@use '03-generic/reset';
+// 3. BASE (Elementi nudi)
+// Regole su tag HTML puri (h1, p, a) senza classi
+@use "base/fonts";
+@use "base/typography";
+@use "base/icons"; // Se sono icone base/font-icons
 
-// 04. Elements
-@use '04-elements/a';
-@use '04-elements/lists';
-@use '04-elements/typography';
+// 4. OBJECTS (Layout)
+// Strutture di posizionamento (l-container, l-row)
+// Vanno prima dei componenti perché i componenti ci finiscono dentro
+@use "base/layout";
 
-// 05. Objects
-@use '05-objects/grid';
-@use '05-objects/o-layout';
-
-// 06. Components
-@use '06-components/c-alert';
-@use '06-components/c-blog';
-@use '06-components/c-btn';
-@use '06-components/c-content';
-@use '06-components/c-embed';
-@use '06-components/c-footer';
-@use '06-components/c-form';
-@use '06-components/c-header';
-@use '06-components/c-icons';
-@use '06-components/c-letter-list';
-@use '06-components/c-links';
-@use '06-components/c-pagination';
-@use '06-components/c-quote';
-@use '06-components/c-section';
-@use '06-components/c-teaser';
-@use '06-components/c-stats';
-@use '06-components/c-hero';
-
-// 07. Utilities
-@use '07-utilities/alignment';
-@use '07-utilities/helpers';
+// 5. COMPONENTS (BEM Blocks)
+// Qui ogni file è un "Blocco" BEM indipendente.
+// L'ordine interno qui conta meno, ma è bene mettere i globali per primi.
+@use "components/buttons"; // I bottoni sono atomi usati ovunque
+@use "components/header"; // Strutture macro
+@use "components/footer";
+@use "components/hero"; // Sezioni specifiche
+@use "components/about_manifesto";
+@use "components/missions_live"; // Componenti complessi
+@use "components/action_grid";
+@use "components/news_card";
+@use "components/contact";

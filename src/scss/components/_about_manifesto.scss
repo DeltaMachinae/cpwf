@@ -1,0 +1,86 @@
+@use '../base/variables' as *;
+
+.about-manifesto {
+    padding: $vertical-margin-desktop 0;
+    background-color: var(--color-white);
+    color: var(--color-black);
+
+    .manifesto__title {
+        font-family: $font-family-headings;
+        font-size: clamp(3rem, 8vw, 6rem);
+        line-height: 0.9;
+        text-transform: uppercase;
+        margin-bottom: 2rem; // Ridotto un po' per avvicinare il testo
+
+        span.highlight {
+            color: var(--color-red);
+            display: block;
+        }
+    }
+
+    .manifesto__text {
+        font-family: $font-family-base;
+        font-size: 1.5rem;
+        max-width: 800px;
+        border-left: 5px solid var(--color-red);
+        padding-left: 2rem;
+    }
+
+    // --- POSIZIONAMENTO RITRATTO ---
+    .manifesto__portrait {
+        position: relative;
+
+        // Su desktop lo alziamo drasticamente per affiancarlo al titolo
+        @media (min-width: 992px) {
+            margin-top: 2rem; // Parte allineato o leggermente più giù del titolo
+            // Se lo vuoi ANCORA più su, usa un valore negativo tipo: -4rem;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            filter: grayscale(100%) contrast(1.2);
+            transition: filter 0.5s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-red);
+            z-index: 1;
+            transform: rotate(2deg);
+        }
+
+        &:hover img {
+            filter: grayscale(0%) contrast(1);
+        }
+    }
+
+    .manifesto__signature {
+        font-family: $font-family-headings;
+        font-size: 1rem;
+        background: var(--color-black);
+        color: var(--color-white);
+        padding: 5px 10px;
+        display: inline-block;
+        position: absolute;
+        bottom: -10px;
+        right: -10px;
+        z-index: 3;
+        transform: rotate(-1deg);
+    }
+
+    .btn-main {
+        color: var(--color-white);
+
+        &:before {
+            background-color: var(--color-red);
+        }
+    }
+}

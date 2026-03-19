@@ -1,0 +1,94 @@
+@use '../base/variables' as *;
+
+.action-grid {
+    overflow: hidden; // Evita che le rotazioni creino scroll orizzontale
+}
+
+.action-card {
+    position: relative;
+    padding: 2rem;
+    margin-bottom: 4rem; // Spazio per l'offset del pulsante su mobile
+
+    &__wrapper {
+        position: relative;
+        height: 100%;
+        min-height: 350px;
+        display: flex;
+        align-items: center;
+    }
+
+    // Il quadrato blu "disruptive" sotto
+    &__bg-box {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 90%;
+        height: 100%;
+        z-index: 1;
+        transform: rotate(-2deg); // Leggermente storto
+        border: 2px solid var(--color-white); // Un bordo sottile per staccare
+    }
+
+    &__content {
+        position: relative;
+        z-index: 2; // Sopra al quadrato blu
+        padding: 2rem;
+        width: 100%;
+    }
+
+    &__number {
+        font-family: $font-family-headings; // ZingRustDemo
+        font-size: 8rem;
+        line-height: 0.8;
+        position: absolute;
+        top: -40px;
+        right: -10px;
+        opacity: 0.2; // Effetto "ghost" in sottofondo
+        color: var(--color-white);
+        pointer-events: none;
+    }
+
+    h3 {
+        margin-bottom: 1rem;
+        // La classe .h--caps gestisce già il look aggressivo
+    }
+
+    p {
+        font-family: $font-family-base;
+        font-size: 1.1rem;
+        line-height: 1.3;
+        margin-bottom: 2rem;
+        max-width: 90%;
+    }
+
+    // Il pulsante che rompe la scatola (esce fuori)
+    &__button-offset {
+        position: absolute;
+        bottom: -25px;
+        right: 0;
+        transform: rotate(3deg); // Rotazione opposta al quadrato blu per contrasto
+
+        .btn-main {
+            padding: 1rem 2rem; // Più grande per impatto
+            box-shadow: 10px 10px 0px var(--color-black); // Ombra dura
+        }
+    }
+
+    // Effetto Hover Disruptive
+    &:hover {
+        .action-card__bg-box {
+            background-color: var(--color-red) !important;
+            transform: rotate(0deg) scale(1.05);
+            opacity: 0.7;
+        }
+
+        .action-card__button-offset {
+            transform: rotate(0deg) translateY(-5px);
+        }
+
+        .action-card__number {
+            opacity: 0.5;
+
+        }
+    }
+}

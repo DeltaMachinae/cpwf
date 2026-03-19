@@ -1,0 +1,29 @@
+// 1. Mappa dei colori (Fonte della verità)
+$colors: (
+    'blue': #050444,
+    'red': #a32725,
+    'light-blue': #008ab9,
+    'black': #000000,
+    'white': #ffffff
+);
+
+// 2. Esportazione in variabili CSS (per l'uso dinamico nel browser)
+:root {
+    @each $name, $value in $colors {
+        --color-#{$name}: #{$value};
+    }
+}
+
+// 3. Generazione Classi Utility pulite (senza il prefisso .u-)
+@each $name, $value in $colors {
+
+    // Classi per lo sfondo (es: .bg-red)
+    .bg-#{$name} {
+        background-color: var(--color-#{$name}) !important;
+    }
+
+    // Classi per il testo (es: .text-red)
+    .text-#{$name} {
+        color: var(--color-#{$name}) !important;
+    }
+}

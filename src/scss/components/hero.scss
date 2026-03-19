@@ -1,0 +1,92 @@
+// src/scss/06-components/_c-hero.scss
+@use '../base/variables' as *;
+@use '../base/colors' as *;
+
+.hero {
+    position: relative;
+    width: 100%;
+    height: 80vh; // Default mobile
+    min-height: 500px;
+    overflow: hidden;
+    background-color: var(--color-black);
+    margin: 0;
+
+    @media (min-width: 768px) {
+        height: 100vh; // Full viewport su desktop
+    }
+
+    &__content {
+        height: 100%;
+        width: 100%;
+    }
+
+    &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        filter: brightness(0.5);
+        z-index: 1;
+    }
+
+    &__overlay {
+        position: absolute;
+        top: 4em; // Offset per header
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+    }
+
+    &__container {
+        width: 100%;
+    }
+
+    &__body {
+        width: 100%;
+        max-width: 1000px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 var(--grid-gutter);
+    }
+
+    &__title {
+        margin-bottom: 1.5rem;
+        font-family: var(--font-heading); // Usa Anton
+        font-size: clamp(3.5rem, 12vw, 7.5rem);
+        line-height: var(--line-height-heading);
+        letter-spacing: var(--letter-spacing-heading);
+        text-transform: uppercase;
+        color: var(--color-white);
+    }
+
+    &__description {
+        font-size: 1.25rem;
+        color: var(--color-white);
+        margin-bottom: 3rem;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 650px;
+        font-family: var(--font-main);
+
+        @media (min-width: 768px) {
+            font-size: 1.8rem;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: center;
+    }
+}
