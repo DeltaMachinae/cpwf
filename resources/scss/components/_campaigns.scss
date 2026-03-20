@@ -1,10 +1,9 @@
 @use '../base/variables' as *;
 
 .campaign-section {
-    padding-block: clamp(4rem, 10vw, 8rem); // Ampia spaziatura tra sezioni
+    padding-block: clamp(4rem, 10vw, 8rem);
     overflow: hidden;
 
-    // Centratura e dimensione delle immagini
     .about-gallery__grid,
     .zine-image-block {
         display: flex;
@@ -15,7 +14,7 @@
 
     .zine-image-block--large {
         width: 100%;
-        max-width: 600px; // Immagine più grande
+        max-width: 600px;
         margin: 0 auto;
 
         .zine-image-block__img {
@@ -26,7 +25,6 @@
         }
     }
 
-    // Bottoni nelle sezioni testo
     .zine-text-block {
         .btn-main {
             margin-top: 2.5rem;
@@ -35,38 +33,18 @@
     }
 }
 
-// Layout alternato su desktop
+.inline-stamp {
+    margin-bottom: 2rem;
+    padding: 0.2rem 0.5rem;
+}
+
 @media (min-width: 769px) {
     .about-intro__grid {
-        align-items: center; // Centra verticalmente testo e immagine
+        align-items: center;
         gap: 4rem;
 
         &--reverse {
-            // Se nel codice l'immagine è prima del testo, 
-            // ma vuoi che appaia a sinistra su desktop
             direction: ltr;
-        }
-    }
-}
-
-// Correzione CTA Finale (stile About)
-.cta-section {
-    padding-block: 6rem;
-    text-align: center;
-
-    &__content {
-        max-width: 800px;
-        margin: 0 auto;
-    }
-
-    .btn-main--white {
-        background-color: var(--color-white);
-        color: var(--color-red);
-        margin-top: 3rem;
-
-        &:hover {
-            background-color: var(--color-black);
-            color: var(--color-white);
         }
     }
 }

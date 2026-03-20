@@ -1,8 +1,5 @@
 @use '../base/variables' as *;
 
-/* ==========================================
-   HEADER MAIN CONTAINER
-   ========================================== */
 .header {
     position: fixed;
     top: 0;
@@ -28,7 +25,7 @@
         height: 100%;
         padding-inline: 1rem;
         position: relative;
-        z-index: 1001; // Sopra l'overlay mobile
+        z-index: 1001;
 
         @media (min-width: 977px) {
             padding-inline: 2rem;
@@ -54,8 +51,6 @@
         align-items: center;
         gap: 1rem;
 
-        // Nasconde il pulsante principale dall'header su mobile
-        // (perché appare già dentro il menu overlay)
         .btn-main {
             @media (max-width: 976px) {
                 display: none;
@@ -64,12 +59,8 @@
     }
 }
 
-/* ==========================================
-   NAVIGATION & MOBILE OVERLAY
-   ========================================== */
 .nav {
 
-    // Mobile View (Overlay Fullscreen)
     @media (max-width: 976px) {
         position: fixed;
         inset: 0;
@@ -79,8 +70,6 @@
         align-items: center;
         justify-content: center;
         z-index: 1000;
-
-        // Stato Chiuso
         opacity: 0;
         visibility: hidden;
         pointer-events: none;
@@ -112,12 +101,10 @@
 
     &__item {
 
-        // Gestione del pulsante Dona Ora quando è dentro la lista (mobile only)
         .btn-main {
             margin-top: 1rem;
         }
 
-        // Alternanza Rotazioni degli sfondi dei link
         &:nth-child(2n) .nav__link::before {
             transform: rotate(1deg);
         }
@@ -135,14 +122,13 @@
         color: var(--color-white);
         position: relative;
         padding: 0.5em 0.8em 0.1em;
-        font-size: 2rem; // Mobile default
+        font-size: 2rem;
         transition: color 0.2s ease;
 
         @media (min-width: 977px) {
             font-size: 1.3rem;
         }
 
-        // Lo sfondo "storto" che appare in hover
         &::before {
             content: '';
             position: absolute;
@@ -159,9 +145,6 @@
     }
 }
 
-/* ==========================================
-   TOGGLE BUTTON (Hamburger)
-   ========================================== */
 .nav-toggle {
     background-color: var(--color-red);
     color: var(--color-white);
@@ -199,7 +182,6 @@
         }
     }
 
-    // Logica Swap Icone quando il menu è aperto
     .is-open & {
         .icon--menu {
             display: none;
